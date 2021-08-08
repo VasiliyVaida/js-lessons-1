@@ -25,6 +25,7 @@ let findMin = (numFirst, numSecond) => {
     return +numSecond;
   }
 };
+// Math.min
 alert(`Your smaller number is: ${findMin(numFirst, numSecond)}`);
 
 // * 3
@@ -208,13 +209,9 @@ function convertType1(value, toType) {
     case 'boolean':
       return Boolean(value);
       break;
-  }
-  switch (toType) {
     case 'string':
       return String(value);
       break;
-  }
-  switch (toType) {
     case 'number':
       return Number(value);
       break;
