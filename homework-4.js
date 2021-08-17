@@ -25,11 +25,12 @@ console.log(getLastElem(arr));
 Напишите код, в котором предпоследнему элементу задается значение “предпоследний элемент”.*/
 
 let arr = ['Alex', 23, true, null, { name: 'John', age: 30 }];
-let getLastElem = function (arr) {
-  return arr[arr.length - 2];
+let changePreLastElem = function (arr) {
+  arr[arr.length - 2] = 'Предпоследний элемент';
+  console.log(arr);
 };
 
-console.log(getLastElem(arr));
+console.log(changePreLastElem(arr));
 
 /*Задание 1:
 Существует массив из какого-то количества элементов строковых данных. Необходимо создать
@@ -119,3 +120,128 @@ let getArrSumm = (array) => {
 };
 
 console.log(getArrSumm(userNumsArr));
+
+/*Создать массив из чисел, длинной не менее 5. Далее написать программу которая берет все числа из исходного массива, возводит их в квадрат и записывает в новый массив. В конце вывести результат в консоль.
+ */
+
+let arr = [2, 5, 8, 9, 10];
+
+let squareArrNums = (array) => {
+  let squaredArr = arr.map((item) => {
+    return item ** 2;
+  });
+  console.log(squaredArr);
+};
+
+squareArrNums(arr);
+
+/*Дан массив
+
+    let array = ['sun', 'moon', undefined, 13, 99, 412, 0.8764]
+Вывести сумму всех чисел в консоль
+ */
+
+let array = ['sun', 'moon', undefined, 13, 99, 412, 0.8764];
+
+let sumArrayNums = (array) => {
+  let result = 0;
+  for (let item of array) {
+    if (typeof item === 'number') {
+      result += item;
+    }
+  }
+  return result;
+};
+
+console.log(sumArrayNums(array));
+
+/*Дана матрица
+    let matrix = [
+        [12, 98, 78, 65, 23],
+        [54, 76, 98, 43, 65],
+        [13, 324, 65, 312],
+        [1, 1, 1, 900000],
+    ]
+Вывести среднее значение чисел в матрице
+ */
+let matrix = [
+  [12, 98, 78, 65, 23],
+  [54, 76, 98, 43, 65],
+  [13, 324, 65, 312],
+  [1, 1, 1, 900000],
+];
+
+let getAverageValueOfMatrix = (array) => {
+  let lineResult = 0;
+  let resultsArr = [];
+  for (let item of array) {
+    for (let itemOfItem of item) {
+      lineResult += itemOfItem;
+    }
+    resultsArr.push(lineResult / item.length);
+  }
+  return resultsArr;
+};
+
+console.log(getAverageValueOfMatrix(matrix));
+
+/*Дан массив
+    let arr = [41, 78, 98, 76, 74, 99]
+Найти самое большое число в массиве и вывести в консоль
+ */
+let arr = [41, 78, 98, 76, 74, 99];
+
+let getMinNum = (array) => {
+  array.sort((a, b) => a - b);
+  return array[array.length - 1];
+};
+
+console.log(getMinNum(arr));
+
+/*Дан массив
+    let arr = [-14, 24, -89, 43, 0 , -1, 412, 4]
+Вывести в консоль два массива. Один с положительными числами, другой с отрицательными.
+ */
+let arr = [-14, 24, -89, 43, 0, -1, 412, 4];
+
+let getPositiveAndNegative = (array) => {
+  let positiveArr = [];
+  let negativeArr = [];
+  for (let item of array) {
+    if (item >= 0) {
+      positiveArr.push(item);
+    } else {
+      negativeArr.push(item);
+    }
+  }
+  console.log(positiveArr);
+  console.log(negativeArr);
+};
+
+getPositiveAndNegative(arr);
+
+/*Дан массив
+    let array = ['привет', 'дорогой', 'как', 'дела?']
+Переверните его.
+ */
+let array = ['привет', 'дорогой', 'как', 'дела?'];
+let getReversed = (array) => {
+  console.log(array.reverse());
+};
+getReversed(array);
+
+/*Спросите у пользователя слово и если оно является палиндромом, по выведите в окно браузера ответ Это слово палиндром
+Использовать можно только методы массивов
+ */
+let userWord = prompt('Enter a word');
+let checkPalindrom = (userWord) => {
+  let wordArr = userWord.split('').reverse();
+  console.log(userWord);
+  if (wordArr.join('') === userWord) {
+    console.log('This word is palindrom');
+  } else {
+    console.log('This word isn`t palndrom');
+  }
+};
+
+checkPalindrom(userWord);

@@ -1,38 +1,49 @@
-// Обьявление массива
-let newArray = newArray;
-let newArray = [];
-// important!: Заполняется массив через запятую
-let newArray = [1, 2, 3];
-let newArra = [1, 2, '3', true, false, function () {}];
+// * Объявление массива
 
-// Получение значения
+let newArray = new Array();
+let newArray = [];
+
+// * Синтаксис
+// important: заполняется массив значениями (элементами) через запятую:
+
+let simpleArray = [1, 2, 3];
 
 let newArray = [
-  'Solo', //0я позиция
-  'Dread', //1я позиция
-  'Nexus', //2я позиция
-  'NS', //3я позиция
+  1,
+  2,
+  3,
+  '4',
+  '5',
+  true,
+  false,
+  function () {
+    console.log('Hello world!');
+  },
 ];
 
-console.log(newArray[0]); //Возвращает Solo
-console.log(newArray[3]); //Возвращает NS
-console.log(newArray[15]); //Возвращает undefined
+// * Получение значения
+
+let newArray = [
+  'Solo', // 0я позиция
+  'Dread', // 1я позиция
+  'Nexus', // 2я позиция
+  'NS', // 3я позиция
+];
+
+console.log(newArray[0]); // возвращает Solo
+console.log(newArray[3]); // возвращает NS
+console.log(newArray[15]); // возвращает undefined
 
 // * Длина массива
-// important!: Длина массива равна количеству элементов
+// important: длина массива равна количеству элементов
 
-let newArray = [
-  'Solo', //0я позиция
-  'Dread', //1я позиция
-  'Nexus', //2я позиция
-  'NS', //3я позиция
-];
+let newArray = ['Solo', 'Dread', 'Nexus', 'NS'];
 
-console.log(newArray.lenght); //Возвращает 4 (т.к 4 элемента)
+console.log(newArray.length); // возвращает 4 (т.к. 4 элемента)
 
-// *Доступ к массиву
+// * Доступа к массиву
 
-// **
+// ** spread - оператор для копирования значения другого массива
 
 const firstArray = [1, 2, 3, 4];
 
@@ -40,32 +51,31 @@ const firstArray = [1, 2, 3, 4];
 
 const secondArray = firstArray; // присваивает ссылку на значение исходного массива. При изменении secondArray будет изменяться и firstArray
 
-//important!: для того, что бы скопировать значение исходного массива, а не его ссылку, используется spread operator
+// important: для того, чтобы скопировать значение исходного массива, а не его ссылку, используется spread-оператор
 
-const thirdArray = [...firstArray]; //spread - оператор. Копирует значение исходного массива firstArray
+const thirdArray = [...firstArray]; // spread - оператор. Копирует значение исходного массива firstArray
 
-// Редактирование массива
-//Изменение значений
+// * Редактирование массива
+// ** изменение значений
 
 let newArray = [
-  'Solo', //0я позиция
-  'Dread', //1я позиция
-  'Nexus', //2я позиция
-  'NS', //3я позиция
+  'Solo', // 0я позиция
+  'Dread', // 1я позиция
+  'Nexus', // 2я позиция
+  'NS', // 3я позиция
 ];
-
 newArray[3] = 'Flash';
-console.log(newArray); //возвращает ['Solo', 'Dread', 'Nexus', 'Flash']
+console.log(newArray); // возвращает ['Solo', 'Dread', 'Nexus', 'Flash']
 
-//Добавление значений
+// ** добавление значений
+
 newArray[4] = 'Хвост';
-console.log(newArray); // ['Solo', 'Dread', 'Nexus', 'Flash', 'Хвост']
+console.log(newArray); // возвращает ['Solo', 'Dread', 'Nexus', 'Flash', 'Хвост']
 
-//Методы массивов
-//push- добавление в массив
+// * методы массивов
+// ** push - добавление эдемента в конец массива
 let party = ['Solo', 'Dread', 'Nexus'];
-party.push('NS'); //возвращает ['Solo', 'Dread', 'Nexus', 'NS']
-
+party.push('NS'); // добавляет в конец массива 'NS'
 console.log(party); // возвращает ['Solo', 'Dread', 'Nexus', 'NS']
 
 // ** shift - удаление первого элемента в массиве
@@ -84,76 +94,224 @@ let party = ['Solo', 'Dread', 'Nexus'];
 party.unshift('NS', 'Flesh');
 console.log(party); // возвращает ['NS', 'Flesh', 'Solo', 'Dread', 'Nexus']
 
-// Редактирование элементов массивов
-// Метод Splice. Important!: Позволяет удалять добавлять и изменять элементы массива
-//Warning! Метод splice изменяет исходный массив
+// * Редактирование элементов массивов
 
-//Удаление элемента
+// ** Метод splice
+// important: Позволяет удалять, добавлять и изменять элементы массива
+// warning: метод splice изменяет исходный массив!
+
+// *** удаление элемента
+
 let party = ['Solo', 'Dread', 'Nexus'];
-//party.splice(индекс, количество элементов)
-//Начиная с первой позиции удаляет 1 элемент
-console.log(party); //Возвращает массив ['Solo', 'Nexus']
-//Warning: Так же можно использовать отрицательные значения метода splice
+// party.splice(индекс, количество элементов)
+party.splice(1, 1); // начиная с первой позиции удаляет 1 элемент
+console.log(party); // возвращает массив ["Solo", "Nexus"]
+
+// warning: также можно использовать отрицательные значения метода splice
+
 let party = ['Solo', 'Dread', 'Nexus'];
-party.splice(-1, 1); //Начиная с первой позиции с конца
+party.splice(-1, 1); // начиная с первой позиции с конца удаляет 1 элемент
+console.log(party); // возвращает массив ["Solo", "Dread"]
 
-//Метод Slice. Important: Создает новый массив который дублирует часть изначального массива, либо весь массив
+// *** удаление элементов с сохранением их в переменную
 
-// Копирование части массива
-// Party.slice(индекс начальной позиции, индекс конечной позиции не включая)
-let newParty = party.slice(1, 2); //Копирует с 1 позиции до второй(не включая)
-console.log(newParty); //Возвращает [Dread]
-//Warning!: Можно использовать отрицательные значения, отсчет будет идти справа налево
+let party = ['Solo', 'Dread', 'Nexus'];
+let newParty = party.splice(1, 1); // начиная с первой позиции удаляет 1 элемент
+console.log(newParty); // возвращает ["Dread"]
+
+// *** замена элемента массива другим элементом
+
+let party = ['Solo', 'Dread', 'Nexus'];
+// party.splice(индекс, количество заменяемых элементов, новый элемент)
+party.splice(1, 1, 'NS');
+console.log(party); // возвращает ["Solo", "NS", "Nexus"]
+
+// *** добавление элементов
+
+let party = ['Solo', 'Dread', 'Nexus'];
+// party.splice(индекс, 0 - означает добавление, новые элементы)
+party.splice(1, 0, 'NS', 'Flash'); // начиная с первой позиции добавляет один элемент
+console.log(party); // возвращает ['Solo', 'NS', Flash', 'Dread', Nexus'];
+
+// ** Метод slice
+// important: создает новый массив. в который дублирует часть изначального массива, либо весь массив
+
+// *** копирование части массива
+
+let party = ['Solo', 'Dread', 'Nexus'];
+// party.slice(индекс начальной позиции, индекс конечной позиции не включая)
+let newParty = party.slice(1, 2); // копирует начиная с первой позиции до второй позиции не включая
+console.log(newParty); // возвращает ["Dread"]
+
+// warning: можно использовать отрицательнгые значения, отсчет будет идти справа налево
 
 let party = ['Solo', 'Dread', 'NS', 'Nexus'];
-let newParty = party.slice(1, -1); // Копирует с первой до последней(не включая) позиции
-console.log(newParty); // Возвращает ['Dread', 'NS']
+let newParty = party.slice(1, -1); // копирует начиная с первой позиции до последней позиции не включая
+console.log(newParty); // возвращает ["Dread", "NS"]
+
+// *** копирование всего массива
 
 let party = ['Solo', 'Dread', 'Nexus'];
-let newParty = party.slice(); //Не принимая значений, копирует весь массив
-console.log(newParty); // Возвращает ['Solo', 'Dread', 'Nexus']
+let newParty = party.slice(); // не принимает никаких значений, полностью дублирует массив
+console.log(newParty); // возвращает ["Solo", "Dread", "Nexus"]
 
-// Метод Concat. Important!: Создает дубль массива, может дополнять новыми значениями
+// ** Метод concat
+// important: создает дубль массива, может дополнять новыми значениями
+
 let party = ['Solo', 'Dread', 'Nexus'];
-let newParty = party.concat('Flash'); //Создает новый массив копируя все значения и добавляет новое в конец
-console.log(newParty); //['Solo', 'Dread', 'Nexus', 'Flash']
-// Important!: Аналогичный результат но с использованием Spread
+let newParty = party.concat('Flash'); // создает новый массив, копируя все значения и добавляя новое в конец
+console.log(newParty); // возвращает ["Solo", "Dread", "Nexus", "Flash"]
+
+// important: аналогичный результат, но с испозьванием spread
+
 let newParty = [...party, 'Flash'];
-console.log(newParty); //['Solo', 'Dread', 'Nexus', 'Flash']
+console.log(newParty); // возвращает ["Solo", "Dread", "Nexus", "Flash"]
 
-//Метод Sort. Important!: Сортирует массив меняя в нем порядок элементов
+// ** Метод sort
+// important: сортирует массив, меняя в нем порядок элементов
+
 let party = ['Solo', 'Dread', 'NS', 'Nexus'];
-console.log(party.sort()); // Возвращает по алфавиту. [ 'Dread', 'NS', 'Nexus', 'Solo']
+console.log(party.sort()); // возвращает ["Dread", "Nexus", "NS", "Solo"]
 
-//warning!: Для сортировки можно использовать стрелочную функцию
-let numberArr = [1, 4, 2, 5, 3];
-console.log(numberArr.sort((a, b) => a - b)); // Стрелочная функция - теорема для метода Sort
+// warning: для сортировки можно использовать стрелочную функцию
 
-//Метод reverse. Important!: Меняет порядок в массиве на обратный
-let party = ['Solo', 'Dread', 'Nexus'];
-console.log(party.reverse()); //Возвращает ['Nexus','Dread', 'Solo']
+let numberArray = [1, 4, 2, 5, 3];
+console.log(numberArray.sort((a, b) => a - b));
 
-//Метод map. Imporant!: Вызывает функцию для каждого элемента массива и возвращает НОВЫЙ МАССИВ(и ничего больше) с результатом выполнентя функции
+// ** Метод reverse
+// important: меняет порядок в массиве на обратный
+
 let party = ['Solo', 'Dread', 'NS', 'Nexus'];
-//party.map((элемент массива, индекс, сам массив) => {});
-let newArray = party.map((item) => item[0]); // Возвращает 1(0 индекс) букву каждого элемента массива
-console.log(newArray); // Возвращает ['S', 'D', 'N', 'N']
+console.log(party.reverse()); // возвращает ["Nexus", "NS", "Dread", "Solo"]
 
-//Метод Split- преобразует строку в массив по заданному разделителю
-let stringParty = 'Solo,Dread,Nexus'; // Строка из слов разделенная запятой
-let arrayParty = stringParty.split(','); //Запятая является разделителем
-console.log(arrayParty); //Возвращает массив ["Solo", "Dread", "Nexus"]
+// ** Метод map
+// important: вызывает функцию для каждого элемента массива и возвращает НОВЫЙ МАССИВ (и ничего больше) с результатом выполнения функции
 
-//Warning: Можно ограничить количество элементов, которые попадут в Массив
+let party = ['Solo', 'Dread', 'NS', 'Nexus'];
+// party.map((элемент массива, индекс, сам массив) => {});
 
-let stringParty = 'Solo, Dread, Nexus';
-let arrayParty = stringParty.split(',', 2); // Запятая, является разделителемЮ 2 элемента попадут в новый массив
-console.log(arrayParty); //Возвращает массив ["Solo", "Dread"]
+let newArray = party.map((item) => item[0]); // возвращает первую (0 индекс) букву каждого элемента массива
+console.log(newArray); // возвращает ["S", "D", "N", "N"]
+
+// ** Методы split и join
+
+// *** split("")
+// important: преобразует строку в массив по заданному разделителю
+
+let stringParty = 'Solo,Dread,Nexus'; // строка из слов, разделенных друг от друга запятой ,
+let arrayParty = stringParty.split(','); // запятая , является разделителем
+console.log(arrayParty); // возвращает массив ["Solo", "Dread", "Nexus"]
+
+// warning: можно ограничить количество элементов, которые попадут в массив
+
+let stringParty = 'Solo,Dread,Nexus';
+let arrayParty = stringParty.split(',', 2); // запятая, является разделителем, 2 элемента попадут в новый массив
+console.log(arrayParty); // возвращает массив ["Solo", "Dread"]
+
+// *** join("")
+// important: проеобразует массив в строку с заданным разделителем
+
+let arrayParty = ['Solo', 'Dread', 'Nexus'];
+let stringParty = arrayParty.join(';'); // точка с запятой является разделителем
+console.log(stringParty); // возвращает строку "Solo;Dread;Nexus"
+
+// * Проверка
+// warning: массив не является отдельным типом данных, значит typeof выдаст тип object
+// important: проверить, что массив является массивом можно с помощью Array.isArray();
 
 let party = ['Solo', 'Dread', 'Nexus'];
-let stringParty = arrayParty.join(';'); // Точка с запятой является разделителем
-console.log(stringParty); //Возвращает строку 'Solo;Dread;Nexus'
+if (Array.isArray(party)) {
+  console.log('Это массив');
+} else {
+  console.log('404');
+}
 
-//Проверка
-//Warning: Массив не является отдельным типом данных, значит typeof выдаст тип object
-//Important!: Проверить, что массив является массивов можно с помощью Array.isArray()
+// * Перебор элементов массива
+
+// ** Цикл for
+let party = ['Solo', 'Dread', 'Nexus'];
+for (let i = 0; i < party.length; i++) {
+  // возвращает значение каждого элемента массива, пока i меньше длины массива
+  console.log(party[i]); // поочередно возвращает Solo Dread Nexus
+}
+
+// ** Цикл for of
+// important: используется для вывода значений массива
+let party = ['Solo', 'Dread', 'Nexus'];
+for (let partyItem of party) {
+  // возвращает значение каждого элемента массива
+  console.log(partyItem); // поочередно возвращает Solo Dread Nexus
+}
+
+// ** метод forEach
+// important: выполняет функцию для каждого элемента массива
+let party = ['Solo', 'Dread', 'Nexus'];
+// party.forEach((элемент массива, индекс, сам массив) => {})
+party.forEach((item, index, array) => {
+  console.log(`${item} имеет ${index} в ${array}`);
+});
+
+// * Метод filter
+// important: позволяет фильтровать по заданному условию исходный массив
+// todo: отфильтровать массив и оставить только объекты, где возраст равен 22
+
+let party = [
+  { name: 'Dread', age: 18 },
+  { name: 'Solo', age: 25 },
+  { name: 'NS', age: 22 },
+  { name: 'Nexus', age: 17 },
+  { name: 'Flash', age: 22 },
+  { name: 'Dandy', age: 23 },
+];
+
+// party.filter(function(элемент массива, индекс, сам массив) {})
+
+const filteredParty = party.filter(function (person, index, array) {
+  if (person.age === 22) {
+    return true;
+  }
+});
+const filteredParty = party.filter(function (person, index, array) {
+  return person.age === 22;
+});
+// warning: запись можно упростить с использованием стрелочной функции
+const filteredParty = party.filter((person) => person.age === 22);
+
+// * Метод reduce
+// important: позволяет вычислить единое значение на основе всего массива
+
+// todo: вычислить суммарный age всех персонажей
+
+let party = [
+  { name: 'Dread', age: 18 },
+  { name: 'Solo', age: 25 },
+  { name: 'NS', age: 22 },
+  { name: 'Nexus', age: 17 },
+  { name: 'Flash', age: 22 },
+  { name: 'Dandy', age: 23 },
+];
+// party.reduce((начальное значение, элемент массива, индекс, сам массив) => {}, начальное значение);
+const totalAge = party.reduce((total, person, index, array) => {
+  return (total += person.age); // возвращает 127;
+}, 0);
+
+// warning: запись можно упростить с использованием стрелочной функции
+const totalAge = party.reduce((total, person) => (total += person.age), 0);
+
+// * Метод find
+// important: обеспечивает поиск в массиве объектов с определенным условием
+// important: возвращает первый попавшщийся элемент, удовлетворяющий условию
+
+// todo: найти первого персонажа с возрастом 17
+
+// party.find((элемент массива, индекс, сам массив) => {})
+const youngPerson = party.find((person) => person.age === 17);
+console.log(youngPerson); // возвращает объект { name: 'Nexus', age: 17 }
+
+// * Метод findIndex
+// important: обеспечивает поиск в массиве с определенным условием
+// important: возвращает индекс первого попавшегося элемента, удовлетворяющего условию
+
+// party.findIndex((элемент массива, индекс, сам массив) => {})
+const youngPerson = party.findIndex((person) => person.age === 17); // возвращает индекс первого попавшегося персонажа с возрастом 17
+console.log(youngPerson); // возвращает индекс 3
