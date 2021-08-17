@@ -333,13 +333,16 @@ const boxarts = [
 let getBiggestUrl = (array) => {
   let biggestUrl = array
     .map((item) => {
-      return (item.square = item.width * item.height);
+      return {
+        square: item.width * item.height,
+        url: item.url,
+      };
     })
     .reduce((a, b) => {
       if (a > b) {
-        return a;
+        return a.url;
       } else {
-        return b;
+        return b.url;
       }
     });
   console.log(biggestUrl);
