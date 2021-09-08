@@ -85,3 +85,4 @@ block.innerHTML = '<p>Test</p>';
 
 // Удаление узлов
 block.remove();
+gi;
